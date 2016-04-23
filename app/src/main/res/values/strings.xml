@@ -4,5 +4,10 @@
     <string name="information">Information</string>
     <string name="setting">Setting</string>
     <string name="title_activity_process_detail">ProcessDetail</string>
+    <string name="refresh_button">Refresh</string>
+    <string name="exit_button">Exit</string>
+    <string name="cpu_process_text">Process CPU Usage: </string>
+    <string name="memory_info_text">Process Memory Info: </string>
+    <string name="memory_usage_text">Process Memory Usage: </string>
     <string name="about">For the detailed process information, including CPU usage, memory usage and battery usage</string>
 </resources>

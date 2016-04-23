@@ -1,4 +1,4 @@
-package com.example.huangm26.battery;
+package com.android.dwy.battery;
 
 import org.junit.Test;
 
