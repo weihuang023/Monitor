@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Get Battery %
             int level = i.getIntExtra("level", 0);
             //Find textview control created in main.xml
-            TextView tv = (TextView) findViewById(R.id.textfield);
+            TextView tv = (TextView) findViewById(R.id.text_field);
             //Set TextView with text
             tv.setText("Battery Level: " + Integer.toString(level) + "%");
         }

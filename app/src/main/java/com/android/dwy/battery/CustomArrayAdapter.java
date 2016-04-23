@@ -20,7 +20,7 @@ public class CustomArrayAdapter extends ArrayAdapter {
 
     List<AndroidAppProcess> processList;
     public CustomArrayAdapter(Context context, List<AndroidAppProcess> list) {
-        super(context,0, list);
+        super(context, 0, list);
         processList = list;
     }
     @Override

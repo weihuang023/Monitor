@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 public class ProcessDetail extends AppCompatActivity implements View.OnClickListener{
 
     float process_usage = 0;
@@ -74,6 +75,8 @@ public class ProcessDetail extends AppCompatActivity implements View.OnClickList
         Log.d("Memory", " pidMemoryInfo.getTotalPss(): " + pidMemoryInfo.getTotalPss() + "\n");
         Log.d("Memory", " pidMemoryInfo.getTotalSharedDirty(): " + pidMemoryInfo.getTotalSharedDirty() + "\n");
         return (pidMemoryInfo.getTotalPrivateDirty() + pidMemoryInfo.getTotalPss() + pidMemoryInfo.getTotalSharedDirty())/1024;
+
+
     }
 
     @Override
