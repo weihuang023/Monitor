@@ -37,13 +37,14 @@ public class ProcessDetail extends AppCompatActivity implements View.OnClickList
         memory_usage = getMemory(pid, name);
 
         TextView displayView = (TextView) findViewById(R.id.process_info);
-        StringBuilder sb = new StringBuilder("The Process name:    ");
-        sb.append(name).append("\n");
-        sb.append("The PID    ").append(pid).append("\n");
-        sb.append("The CPU usage    ").append(process_usage).append("%").append("\n");
-        sb.append("The Memory usage    ").append(memory_usage).append(" MB").append("\n");
-        sb.append("The battery percentage used since the app started ").append(process_usage).append("%").append("\n");
+        StringBuilder sb = new StringBuilder();
+        sb.append("PID: \t\t").append(pid).append("\n");
+        sb.append("Process: \t\t").append(name).append("\n");
+        sb.append("CPU Usage: \t\t").append(process_usage).append("%").append("\n");
+        sb.append("Mem Usage: \t\t").append(memory_usage).append(" MB").append("\n");
+        sb.append("Battery Usage: \t\t\t\t").append(process_usage).append("%").append("\n");
         displayView.setText(sb.toString());
+
     }
 
     /**
@@ -75,7 +76,6 @@ public class ProcessDetail extends AppCompatActivity implements View.OnClickList
         Log.d("Memory", " pidMemoryInfo.getTotalPss(): " + pidMemoryInfo.getTotalPss() + "\n");
         Log.d("Memory", " pidMemoryInfo.getTotalSharedDirty(): " + pidMemoryInfo.getTotalSharedDirty() + "\n");
         return (pidMemoryInfo.getTotalPrivateDirty() + pidMemoryInfo.getTotalPss() + pidMemoryInfo.getTotalSharedDirty())/1024;
-
 
     }
 

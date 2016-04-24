@@ -188,10 +188,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         activityManager.getMemoryInfo(mi);
         long availableMegs = mi.availMem / 1048576L;
         long totalMem = mi.totalMem / 1048576L;
-        Log.d("Memory info", "Available memory: " + availableMegs + ", Total Available " + totalMem + "," + "\n");
+        Log.d("Memory info",
+                "Available memory: " + availableMegs +
+                ", Total Available " + totalMem + "," + "\n");
         TextView memoryView = (TextView) findViewById(R.id.memory_info);
-        StringBuilder sb = new StringBuilder("Available memory ");
-        sb.append(availableMegs).append("MB").append(" Total Available ").append(totalMem).append("MB");
+        StringBuilder sb = new StringBuilder();
+        sb.append("Available Memory: ").append(availableMegs).append("MB").append("\n");
+        sb.append("Total Available Memory: ").append(totalMem).append("MB");
         memoryView.setText(sb.toString());
     }
 
@@ -232,19 +235,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String load = reader.readLine();
 
             String[] toks = load.split(" +");  // Split on one or more spaces
-            Log.d("1111", String.valueOf(toks[1]));
-            long work1 = Long.parseLong(toks[1]) + Long.parseLong(toks[2]) + Long.parseLong(toks[3]);
-            long total1 = Long.parseLong(toks[1]) + Long.parseLong(toks[2])
-                    + Long.parseLong(toks[3]) + Long.parseLong(toks[4])
-                    + Long.parseLong(toks[5]) + Long.parseLong(toks[6])
-                    + Long.parseLong(toks[7]) + Long.parseLong(toks[8]);
-            long idle1 = Long.parseLong(toks[4]);
-            long cpu1 = Long.parseLong(toks[2]) + Long.parseLong(toks[3]) + Long.parseLong(toks[5])
-                    + Long.parseLong(toks[6]) + Long.parseLong(toks[7]) + Long.parseLong(toks[8]);
 
-            try {
+            Log.d("1111", String.valueOf(toks[1]));
+
+            long work1 = Long.parseLong(toks[1])
+                       + Long.parseLong(toks[2])
+                       + Long.parseLong(toks[3]);
+
+            long total1 = Long.parseLong(toks[1])
+                        + Long.parseLong(toks[2])
+                        + Long.parseLong(toks[3])
+                        + Long.parseLong(toks[4])
+                        + Long.parseLong(toks[5])
+                        + Long.parseLong(toks[6])
+                        + Long.parseLong(toks[7])
+                        + Long.parseLong(toks[8]);
+
+            long idle1 = Long.parseLong(toks[4]);
+
+            long cpu1 = Long.parseLong(toks[2])
+                      + Long.parseLong(toks[3])
+                      + Long.parseLong(toks[5])
+                      + Long.parseLong(toks[6])
+                      + Long.parseLong(toks[7])
+                      + Long.parseLong(toks[8]);
+
+            try
+            {
                 Thread.sleep(360);
-            } catch (Exception e) {}
+            }
+            catch (Exception e)
+            {
+
+            }
 
             reader.seek(0);
             load = reader.readLine();
@@ -253,15 +276,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             toks = load.split(" +");
 
             long idle2 = Long.parseLong(toks[4]);
-            long cpu2 = Long.parseLong(toks[2]) + Long.parseLong(toks[3]) + Long.parseLong(toks[5])
-                    + Long.parseLong(toks[6]) + Long.parseLong(toks[7]) + Long.parseLong(toks[8]);
+            long cpu2 = Long.parseLong(toks[2])
+                      + Long.parseLong(toks[3])
+                      + Long.parseLong(toks[5])
+                      + Long.parseLong(toks[6])
+                      + Long.parseLong(toks[7])
+                      + Long.parseLong(toks[8]);
 
-            long work2 = Long.parseLong(toks[1]) + Long.parseLong(toks[2])
-                    + Long.parseLong(toks[3]);
-            long total2 = Long.parseLong(toks[1]) + Long.parseLong(toks[2])
-                    + Long.parseLong(toks[3]) + Long.parseLong(toks[4])
-                    + Long.parseLong(toks[5]) + Long.parseLong(toks[6])
-                    + Long.parseLong(toks[7]) + Long.parseLong(toks[8]);
+            long work2 = Long.parseLong(toks[1])
+                       + Long.parseLong(toks[2])
+                       + Long.parseLong(toks[3]);
+
+            long total2 = Long.parseLong(toks[1])
+                        + Long.parseLong(toks[2])
+                        + Long.parseLong(toks[3])
+                        + Long.parseLong(toks[4])
+                        + Long.parseLong(toks[5])
+                        + Long.parseLong(toks[6])
+                        + Long.parseLong(toks[7])
+                        + Long.parseLong(toks[8]);
 
             return (float)(cpu2 - cpu1) / ((cpu2 + idle2) - (cpu1 + idle1));
 //            return (float) (work2 - work1) / ((total2 - total1));

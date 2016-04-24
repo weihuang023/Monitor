@@ -17,8 +17,11 @@
         android:layout_height="wrap_content"
         android:text="@string/about"
         android:id="@+id/process_info"
+        android:textColor="#4458ef"
+        android:textStyle="bold"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        />
 
     <Button
         android:layout_width="fill_parent"
